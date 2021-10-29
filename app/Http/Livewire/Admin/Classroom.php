@@ -8,6 +8,6 @@ class Classroom extends Component
 {
     public function render()
     {
-        return view('livewire.admin.classroom');
+        return view('livewire.admin.classroom')->layout('layouts.admin.app1');
     }
 }

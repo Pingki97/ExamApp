@@ -4,10 +4,20 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Exam;
 use App\Http\Livewire\admin\Index;
 use App\Http\Livewire\admin\Classroom;
+use App\Http\Livewire\{
+    User,
+    Login,
+    Register
+};
 
 
-//Route::get('/',User::class);
-Route::get('/',Index::class);
+// user side -------------------
+Route::get('/',Login::class)->name('login');
+Route::get('/register',Register::class)->name('register');
+
+
+// admin side -------------------
+Route::get('/exadmin',Index::class);
 Route::get('/exam',Exam::class);
 Route::get('/class',Classroom::class);
 
