@@ -45,7 +45,7 @@
 
                                   </div>
                                   <div class="form-check">
-                                      <input class="form-check-input" wire:click="check({{ $item->id }},'d')"
+                                      <input class="form-check-input" wire:click="check({{ $item->id }},'{{$item->stu_name}}')"
                                           type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                                       <label class="form-check-label" for="flexRadioDefault2">
                                           (D)
@@ -96,21 +96,21 @@
             }, 1000);
 
             function timer() {
-                if (h == 0 && m == 0 && s == 0) {
-                    clearInterval(start);
-                    // document.getElementById('button').click();
-                } else if (s != 0) {
-                    s--;
-                } else if (m != 0 && s == 0) {
-                    s = 59;
-                    m--;
-                } else if (h != 0 && m == 0) {
-                    m = 60;
-                    h--;
-                }
+              if (h == 0 && m == 0 && s == 0) {
+                  clearInterval(start);
+                  // document.getElementById('button').click();
+              } else if (s != 0) {
+                  s--;
+              } else if (m != 0 && s == 0) {
+                  s = 59;
+                  m--;
+              } else if (h != 0 && m == 0) {
+                  m = 60;
+                  h--;
+              }
 
-                document.getElementById('timer').innerHTML = `${h}:${m}:${s}`;
-                return;
+              document.getElementById('timer').innerHTML = `${h}:${m}:${s}`;
+              return;
             }
         </script>
     </div>

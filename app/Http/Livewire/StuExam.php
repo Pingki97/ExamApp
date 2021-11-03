@@ -21,7 +21,11 @@ class StuExam extends Component
 
     public function check($id,$a)
     {
-       dd($a,$id);
+        $student = DB::table('students')
+        ->where('stu_name',$a)
+        ->where('id',$id)
+        ->first();
+        dd($student);
     }
     public function render()
     {
