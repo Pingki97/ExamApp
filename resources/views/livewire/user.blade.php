@@ -1,4 +1,8 @@
 <div>
-    {{-- <button wire:click="addContact">Submit</button> --}}
-    <h1>user component</h1>
+    <h1>user component{{Auth::id()}}</h1>
+
+    <script>
+        console.log('user')
+    </script>
+
 </div>

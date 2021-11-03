@@ -7,7 +7,7 @@
                 <div class="card-body px-5 py-5">
                   <h3 class="card-title text-center mb-3">Register</h3>
                   <hr>
-                  <form wire:submit.prevent="submit">
+                  <form wire:submit.prevent="save">
                     <div class="form-group">
                       <input type="text" class="form-control p_input" wire:model="name" placeholder="Name">
                       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
@@ -17,16 +17,28 @@
                       @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
+                      <input type="text" class="form-control p_input" wire:model="mobile" placeholder="mobile">
+                      @error('mobile') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control p_input" wire:model="address" placeholder="address">
+                      @error('address') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control" id="exampleFormControlSelect1" wire:model="class_id">
+                          <option>Select Class</option>
+                          @foreach ($classes as $item)
+                          <option value="{{$item->id}}">{{$item->class_name}}</option>
+                          @endforeach
+                      </select>
+                  </div>
+                    <div class="form-group">
                       <input type="password" class="form-control " wire:model="password" placeholder="Password">
                       @error('password') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control p_input" wire:model="password_confirmation" placeholder="Repeat Password">
-                     
                     </div>
-                    {{-- <div class="form-group d-flex align-items-center justify-content-between">
-                      <div class="form-check"><label><input type="checkbox" class="form-check-input">I Agree to the Terms & conditions</label></div>
-                    </div> --}}
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary btn-block enter-btn">Register</button>
                     </div>
