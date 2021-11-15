@@ -38,7 +38,6 @@
                                         @if ($opt=="b")
                                             checked
 
-<<<<<<< HEAD
                                         @endif
                                         type="radio" name="Choose"
                                             id="flexRadioDefault2">
@@ -56,18 +55,6 @@
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             (C)
                                         </label>
-=======
-                                  </div>
-                                  <div class="form-check">
-                                      <input class="form-check-input" wire:click="check({{ $item->id }},'{{$item->stu_name}}')"
-                                          type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                      <label class="form-check-label" for="flexRadioDefault2">
-                                          (D)
-                                      </label>
-                                  </div>
-                              </div>
-                          </div>
->>>>>>> 639cacdbac3d595aa05cdeceb263b46d3e0e8e13
 
                                     </div>
                                     <div class="form-check">
@@ -145,7 +132,6 @@
                 document.getElementById("minusCountBtn").click();
             }   
             function timer() {
-<<<<<<< HEAD
                 if (h == 0 && m == 0 && s == 0) {
                     clearInterval(start);
                     document.getElementById('submitBtn').click();
@@ -158,20 +144,6 @@
                     m = 60;
                     h--;
                 }
-=======
-              if (h == 0 && m == 0 && s == 0) {
-                  clearInterval(start);
-                  // document.getElementById('button').click();
-              } else if (s != 0) {
-                  s--;
-              } else if (m != 0 && s == 0) {
-                  s = 59;
-                  m--;
-              } else if (h != 0 && m == 0) {
-                  m = 60;
-                  h--;
-              }
->>>>>>> 639cacdbac3d595aa05cdeceb263b46d3e0e8e13
 
               document.getElementById('timer').innerHTML = `${h}:${m}:${s}`;
               return;
