@@ -18,19 +18,33 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="card">
+        @forelse ($exam_seduler as $item)
+        <div class="card m-5">
           <div class="card-body">
               <div class="d-flex justify-content-between">
-                <p class="card-text">{{Session::get('stu_name')}} Student NAME  </p>
-                <p class="card-text">{{Session::get('stu_name')}} EXAM time  </p>
-                <p class="card-text">{{Session::get('stu_name')}} EXAM NAME  </p>
-                <p class="card-text">{{Session::get('stu_name')}}  Button  </p>
+                <p class="card-text">{{ucwords(Session::get('stu_name'))}}</p>
+                  <p class="card-text">Exam Name : {{ucwords($item->exam_name)}} </p>
+                  <p class="card-text">Exam Time : {{$item->exam_start}} </p>
+                  <p class="card-text">Exam Marks :{{$item->exam_marks}}</p>
+                  <p class="card-text">Pass Marks :{{$item->exam_pass_marks}}</p>
+                  <p class="card-text">
+                    @if ($item->exam_status=="A")
+                    <p style="background-color: rgb(64, 228, 138);padding:4px 8px;border-radius:50px;">
+                      <a href="{{url('/student/'.$item->id)}}" style="text-decoration: none;color:white;"> Start Exam</a></p>
+                    @else
+                        <p style="background-color: rgb(212, 141, 120);color:white;padding:4px 8px;border-radius:50px;">Time over</p>
+                    @endif
               </div>
-            <div class="col-md-6">
-              <button id="button" style="display:none;" wire:click="endExam"></button>
+              {{-- <div class="col-md-6">
+                <button id="button" style="display:none;" wire:click="endExam"></button> 
+              </div> --}}
             </div>
           </div>
-        </div>
+          @empty
+            <div class="text-center">
+              <h5>No exam assigned</h5>
+            </div>
+          @endforelse
       </div>
     </div>
   </div>

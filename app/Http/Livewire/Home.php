@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-
+use Illuminate\Support\Facades\DB;
 class Home extends Component
 {   
     // public $login =true;
@@ -41,7 +41,9 @@ class Home extends Component
     public function render()
     {
 
-        return view('livewire.home')->layoutData(['title' => 'Home']);
+        $exam_seduler = DB::table('exams')->where("class_id",session()->get('class_id'))->get();
+
+        return view('livewire.home',["exam_seduler"=>$exam_seduler])->layoutData(['title' => 'Home']);
 
     }
 }

@@ -29,6 +29,7 @@
     @livewireScripts
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{asset('user/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js')}}"></script>
+    @stack('scripts')
 </body>
 
 </html>

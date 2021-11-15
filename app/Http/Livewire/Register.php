@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Http\Request;
 use Livewire\Component;
 use App\Models\Student;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,7 @@ class Register extends Component
     // {
     //     $this->emit('login');
     // }
-    public function save()
+    public function save(Request $request)
     {
         $this->validate([
             'email'    => 'required|email|min:3|max:50|unique:users',
@@ -39,9 +40,10 @@ class Register extends Component
             'class_id' => $this->class_id,
         ]);
         // dd($student);
-        session()->put("stu_email",$student->stu_email);
-        session()->put("stu_name",$student->stu_name);
-        session()->put("stu_id",$student->id);
+        $request->session()->put("stu_email",$student->stu_email);
+        $request->session()->put("stu_name",$student->stu_name);
+        $request->session()->put("stu_id",$student->id);
+        $request->session()->put("class_id",$student["class_id"]);
         
         // $this->emit('user');
         redirect(route('home'));
@@ -51,6 +53,6 @@ class Register extends Component
     {
         $this->classes = DB::table('classes')->get();
         
-        return view('livewire.register',['classes'=>$this->classes])->layoutData(['title' => 'Register']);;
+        return view('livewire.register',['classes'=>$this->classes])->layoutData(['title' => 'Register']);
     }
 }

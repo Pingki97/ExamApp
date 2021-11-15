@@ -14,8 +14,8 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ucwords(Session::get('stu_name')) }}
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" style="cursor:pointer" wire:click.prevent="logout">Logout</a>
+                        <div class="dropdown-menu" style="margin-left:10%;" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" style="cursor:pointer;" wire:click="logout">Logout</a>
                         </div>
                     </li>
                 </ul>
