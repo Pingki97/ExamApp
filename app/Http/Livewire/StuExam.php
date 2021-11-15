@@ -85,6 +85,7 @@ class StuExam extends Component
 
     public function mount($exam_id)
     {
+<<<<<<< HEAD
         $this->exam_id=$exam_id;
 
         // if $exam_id and studemt id already presant in SelectOption then delete all data according to  $exam_id and studemt id
@@ -105,6 +106,13 @@ class StuExam extends Component
         $this->ques_marks=$question_info->question_marks;
         $this->question_id=explode(',', $question_info->question_id);
         
+=======
+        $student = DB::table('students')
+        ->where('stu_name',$a)
+        ->where('id',$id)
+        ->first();
+        dd($student);
+>>>>>>> 639cacdbac3d595aa05cdeceb263b46d3e0e8e13
     }
 
     public function render()
